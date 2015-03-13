@@ -12,9 +12,8 @@ Description: The game of Nim with both single and two player modes.
 '''
 from graphics import *
 from functools import reduce
-import sys
 
-stacks = list()
+stacks = []
 
 def main():
     print("NIM! Take turns removing numbers from the stacks.\nDon't be the last one to make a move!")
@@ -58,6 +57,7 @@ def two_player():
 
 
 def get_move_user():
+    #need to modify this to accept 2 values only
     stack_num, num_taken = map(int, input("Which stack and how much? ").split())
     stack_num -= 1
     return stack_num, num_taken
@@ -114,6 +114,7 @@ def nim_sum():
     return reduce(lambda x, y: x^y, stacks)
 
 def end_condition():
+    #return not bool(sum(stacks)-1)
     if sum(stacks) == 1:
         return True
     else:
